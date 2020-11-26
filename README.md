@@ -10,9 +10,9 @@ Hello world example of GRPC exposed in GKE over ingress
 + access to a dns server. GCP CloudDNS is good but anyone would do (even `/etc/hosts`)
 
 ## setup
-+ replace all instances of <my domain> with your real domain name e.g. grpcserver.mycompany.com  
++ replace all instances of `<my domain>` with your real domain name e.g. grpcserver.mycompany.com  
 files: Makefile,deployment.yaml,main/cli.go:
-+ replace all instances of <my docker image> with your docker image name e.g. mycompany/grpcserver  
++ replace all instances of `<my docker image>` with your docker image name e.g. mycompany/grpcserver  
 files: Makefile,deployment.yaml
 + install protoc and protoc-gen-go make sure that protoc-gen-go is in your PATH
 + run `make generate` which will create `chat/chat.pb.go` and `chat/chat_grpc.pb.go`
