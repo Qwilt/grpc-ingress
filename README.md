@@ -34,7 +34,7 @@ files: Makefile,deployment.yaml
 + deploy to k8s `kubectl apply -f deployment.yaml`
 + wait a while - can take 20 mins
 + find your ingress external IP `kubectl get ing grpcserver -ojsonpath='{.status.loadBalancer.ingress[0].ip}'` 
-and update your dns (gcp https://console.cloud.google.com/net-services/dns). map an A record from <your domain> to the 
+and update your dns (gcp https://console.cloud.google.com/net-services/dns). map an A record from `<your domain>` to the 
 ingress external IP
 + wait until the dns record propagates. You can check it with `dig
 + run `go run main/cli.go` and verify that the response is "Hello I'm the client" 
