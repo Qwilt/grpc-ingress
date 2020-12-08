@@ -15,6 +15,7 @@ files: Makefile,deployment.yaml,main/cli.go:
 + replace all instances of `<my docker image>` with your docker image name e.g. mycompany/grpcserver  
 files: Makefile,deployment.yaml
 + install protoc and protoc-gen-go make sure that protoc-gen-go is in your PATH
++ install protoc-gen-go-grpc and grpc (separate on brew for example)
 + run `make generate` which will create `chat/chat.pb.go` and `chat/chat_grpc.pb.go`
 + run `make cert` to generate a self signed certificate and private key in the `cert` directory  
    

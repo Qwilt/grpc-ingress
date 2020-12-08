@@ -1,5 +1,4 @@
 DOCKER_IMAGE = <my docker image>
-DNS_NAME = <my domain>
 
 export CGO_ENABLED = 0
 export GOARCH = amd64
@@ -24,7 +23,8 @@ push:
 	docker push $(DOCKER_IMAGE)
 
 cert:
-	openssl req -x509 -nodes -newkey rsa:2048 -days 365 -keyout cert/key.pem -out cert/cert.pem -subj "/CN=$(DNS_NAME)"
+  mkdir -p cert
+	openssl req -x509 -nodes -newkey rsa:2048 -days 365 -keyout cert/key.pem -out cert/cert.pem -subj "/CN=does.not.matter.com"
 
 secret:
 	kubectl create secret tls grpc-cert-self-managed --cert=cert/cert.pem --key=cert/key.pem
