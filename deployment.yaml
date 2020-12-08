@@ -37,18 +37,21 @@ apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: grpcserver
-#  annotations:
-#    networking.gke.io/managed-certificates: grpc-cert
+  annotations:
+    networking.gke.io/managed-certificates: grpc-cert
 
 spec:
-  tls:
-    - hosts:
-      - <my domain>
-      secretName: grpc-cert-self-managed
   backend:
     serviceName: grpcserver
     servicePort: 443
-
+---
+apiVersion: networking.gke.io/v1
+kind: ManagedCertificate
+metadata:
+  name: grpc-cert
+spec:
+  domains:
+    - <my domain>
 ---
 apiVersion: apps/v1
 kind: Deployment
